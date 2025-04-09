@@ -8,13 +8,51 @@ window#waybar {
     border-radius: 7px;
     background-color: rgba(255,255,255,0.03);
     color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
     border: 1px solid rgba(255,255,255,0.1);
 }
 
 window#waybar>box {
     padding:8px;
+}
+
+#window {
+   padding-left: 30px;
+   padding-right: 30px;
+}
+
+#taskbar {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    border-radius: 10px;
+    transition: 0.1s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+#custom-power {
+    background-color: rgba(255,0,0,0.1);
+    color: white;
+    border-radius: 99px;
+    transition: 0.1s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding-left: 9px;
+    padding-right: 9px;
+    font-size: 20px;
+}
+
+#custom-weather {
+    padding-left: 9px;
+    padding-right: 9px;
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    border-radius: 10px;
+    transition: 0.1s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+
+
+#custom-power:hover {
+   background-color: red;
 }
 
 window#waybar.hidden {
@@ -37,12 +75,15 @@ window#waybar.termite {
 window#waybar.chromium {
     background-color: #000000;
 }
+
+
 button {
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
     /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
+    padding: 4px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -56,10 +97,10 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0px 5px;
-    margin-left: 5px;
+    padding: 0px 4px;
+    margin-left: 10px;
     color: white;
-    border-radius: 10px;
+    border-radius: 99px;
     transition: 0.1s ease;
     border: 1px solid rgba(255,255,255,0.1);
 }
@@ -134,7 +175,7 @@ button:hover {
 }
 
 #battery {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(0,255,0,0.2);
     color: white;
     border-radius: 10px;
     transition: 0.1s ease;
@@ -142,11 +183,11 @@ button:hover {
 }
 
 #battery.charging:hover, #battery {
-	background-color: gray;
+    background-color: green;
 }
 
 #battery.charging, #battery.plugged {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(0,255,0,0.2);;
     color: white;
     border-radius: 10px;
     transition: 0.1s ease;
@@ -254,6 +295,11 @@ label:focus {
     min-width: 100px;
 }
 
+#custom-media:hover {
+    background-color: gray;
+}
+
+
 #custom-media.custom-spotify {
     background-color: #66cc99;
 }
@@ -271,7 +317,7 @@ label:focus {
 }
 
 #tray {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(55,255,255,0.2);
     color: white;
     border-radius: 10px;
     transition: 0.1s ease;
@@ -279,7 +325,7 @@ label:focus {
 }
 
 #tray:hover{
-    background-color: gray;
+    background-color: rgba(55,255,255,0.5);
 }
 
 #tray > .passive {
@@ -301,7 +347,7 @@ label:focus {
 }
 
 #mpd {
-    background-color: #66cc99;
+    background-color: white;
     color: #2a5c45;
 }
 

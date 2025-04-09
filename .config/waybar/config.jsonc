@@ -8,18 +8,21 @@
     "margin": 5,
     // Choose the order of the modules
     "modules-left": [
-        "mpd",
+        "custom/power",
         "pulseaudio",
         "backlight",
         "keyboard-state",
         "battery",
-        "custom/power",
+        "custom/weather",
+        "mpd", 
     ],
     "modules-center": [
-	"hyprland/window",
+        "wlr/taskbar",
+        "hyprland/window",
 	"hyprland/workspaces",
     ],
     "modules-right": [
+        "custom/media",
 	"tray",
         "clock",
     ],
@@ -122,24 +125,23 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": " {icon} {percent}%",
+        "format": " {icon}  {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": " {icon} {capacity}%",
-        "format-full": " {icon} {capacity}%",
-        "format-charging": "{icon} {capacity}% ",
-        "format-plugged": "{icon} {capacity}% ",
+        "format": "{icon}  {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄 {capacity}% ",
         "format-alt": "{time} {icon}",
-        "format-good": "", // An empty format will hide the module
-        "format-full": "",
-        "format-plugged":"󰂄",
-        "format-icons": ["", "", "", "", "", "󰂄",]
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
     },
     "battery#bat2": {
         "bat": "BAT2"
@@ -165,11 +167,13 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": "{icon} {volume}%",
-        "format-bluetooth-muted": "{icon}",
-        "format-muted": "format_source}",
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}%  {icon} ",
+        "format-bluetooth-muted":" 󰟎  ",
+        // "format-muted": "{format_source}",
+        // "format-source": "{volume}% ",
+        "format-source-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -181,21 +185,31 @@
         },
         "on-click": "kitty pulsemixer"
     },
+
     "custom/media": {
-        "format": "{icon} {text}",
+        "format": "{text}",
         "return-type": "json",
-        "max-length": 40,
+        "max-length": 25,
         "format-icons": {
-            "spotify": "",
-            "default": "🎜"
+            "spotify": "",
+            "default": ""
         },
+        "on-click": "playerctl --player=spotify,firefox play-pause",
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
+        // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+},
+"custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "$HOME/.config/waybar/waybar-wttr.py",
+    "return-type": "json"
+},
     "custom/power": {
-        "format" : "⏻ ",
-		"tooltip": false,
+        "format" : "⏻",
+		"tooltip": true,
+                "tooltip-format": "Power menu",
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
 		"menu-actions": {

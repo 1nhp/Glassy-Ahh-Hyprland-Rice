@@ -1,0 +1,48 @@
+// Load with --load-config examples/2.jsonc
+// Note that you must replace the image path to an existing image to display it.
+
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    // "logo": {
+    //     "type": "iterm",
+    //     "source": "~/Desktop/apple1.png",
+    //     "width": 28,
+    //     "height": 12
+    // },
+    "display": {
+        "separator": "  ",
+        "constants": [
+            "─────────────────" // {$1}, used in Custom module
+        ],
+        "key": {
+            "type": "icon",
+            "paddingLeft": 2
+        }
+    },
+    "modules": [
+        "host",
+        "cpu",
+        "gpu",
+        "memory",
+        {
+            "type": "title",
+            "keyIcon": "",
+            "key": "Title", // Title module has no key by default, so that icon is not displayed
+            "format": "{user-name}@{host-name}"
+        },
+        "os",
+        "kernel",
+        "wm",
+        "shell",
+        "terminal",
+        "packages",
+       {
+        },
+
+        {
+            "type": "colors",
+            "paddingLeft": 2,
+            "symbol": "circle"
+        }
+    ]
+}

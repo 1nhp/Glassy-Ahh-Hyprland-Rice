@@ -345,20 +345,6 @@ handle_mime() {
         exiftool "${FILE_PATH}" && exit 5
         sleep 1
         exit 1;;
-
-    video/*)
-        VIDEO_PID_FILE="/tmp/ranger_video_preview.pid"
-
-        # Kill previous preview
-        if [ -f "$VIDEO_PID_FILE" ]; then
-            kill "$(cat "$VIDEO_PID_FILE")" 2>/dev/null
-            rm -f "$VIDEO_PID_FILE"
-        fi
-
-        # Start new preview with mpv (muted)
-        (mpv --quiet --loop-file=inf "$FILE_PATH" & echo $! > "$VIDEO_PID_FILE") &
-        sleep 1
-        exit 1;;
     esac
 }
 
