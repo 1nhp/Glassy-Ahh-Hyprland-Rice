@@ -17,6 +17,9 @@ Beautiful clean glassmorphic blurry looking Hyprland rice that took me over 3 da
 - Uses ONLY 722mb of Ram!
 - Has custom pop-in pop-out animation!
 
+### Overview
+https://streamable.com/y982ba
+
 ### Installation
 
 Just use the following command to install directly no fuss needed!
