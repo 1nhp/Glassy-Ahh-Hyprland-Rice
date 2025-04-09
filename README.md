@@ -22,7 +22,7 @@ Beautiful clean glassmorphic blurry looking Hyprland rice that took me over 3 da
 Just use the following command to install directly no fuss needed!
 
 ### Direct install
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/1nhp/dotfiles/refs/heads/main/GlassyAhhHyprlandRice/install.sh)`
+`"sh -c $(curl -fsSL https://raw.githubusercontent.com/1nhp/dotfiles/refs/heads/main/GlassyAhhHyprlandRice/install.sh)"`
 
 or you can try copying the config files yourself manually
 
